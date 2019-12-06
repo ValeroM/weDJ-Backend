@@ -3,7 +3,7 @@ const { Lobby } = db;
 
 const setup = () => {
   const logEndPoint = (req, res, next) => {
-    console.log("You have hit the [GET] api/lobbies endpoint");
+    console.log("You have hit the [GET] /lobbies endpoint");
     next();
   };
 

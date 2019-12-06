@@ -13,7 +13,7 @@ function createCode(length) {
 
 const setup = () => {
   const logEndPoint = (req, res, next) => {
-    console.log("You have hit the [POST] api/lobbies endpoint");
+    console.log("You have hit the [POST] /lobbies endpoint");
     next();
   };
 

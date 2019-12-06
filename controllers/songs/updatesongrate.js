@@ -4,7 +4,7 @@ const { Song, Queue, Lobby } = db;
 const setup = () => {
 
     const logEndPoint = (req, res, next) => {
-        console.log("You have hit the [GET] api/songs/:lobbycode/:songcode/:rate endpoint");
+        console.log("You have hit the [GET] /songs/:lobbycode/:songcode/:rate endpoint");
         next();
     };
 
@@ -76,23 +76,25 @@ const setup = () => {
         }
 
         Queue
-        .findOne({
-            returning: false,
-            where: {lobbyId: compositeKeyObj.lobbyId,
-            songId: compositeKeyObj.songId}
-        })
-        .then((recordFound) => {
-            if (incoming_rate == 1) {
-                recordFound.increment("rate", {by: 1});
-                res.sendStatus(200);
-            } else if (incoming_rate == -1) {
-                recordFound.decrement("rate", {by: 1});
-                res.sendStatus(200);
-            }
-        })
-        .catch( (err) => {
-            res.status(400).json(err);
-        })
+            .findOne({
+                returning: false,
+                where: {
+                    lobbyId: compositeKeyObj.lobbyId,
+                    songId: compositeKeyObj.songId
+                }
+            })
+            .then((recordFound) => {
+                if (incoming_rate == 1) {
+                    recordFound.increment("rate", { by: 1 });
+                    res.sendStatus(200);
+                } else if (incoming_rate == -1) {
+                    recordFound.decrement("rate", { by: 1 });
+                    res.sendStatus(200);
+                }
+            })
+            .catch((err) => {
+                res.status(400).json(err);
+            })
     }
 
     return [logEndPoint, findSongByPk, findLobbyByPk, changeSongRating]; // performs the methods we declared

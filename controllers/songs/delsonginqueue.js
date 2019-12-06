@@ -4,7 +4,7 @@ const { Song, Lobby, Queue } = db;
 const setup = () => {
 
   const logEndPoint = (req, res, next) => {
-    console.log("You have hit the [DELETE] api/songs/delete endpoint");
+    console.log("You have hit the [DELETE] /songs/delete endpoint");
     next();
   };
 

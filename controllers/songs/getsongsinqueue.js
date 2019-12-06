@@ -4,7 +4,7 @@ const { Song, Lobby, Queue } = db;
 const setup = () => {
 
   const logEndPoint = (req, res, next) => {
-    console.log("You have hit the [GET] api/songs/queue/:lobbycode endpoint");
+    console.log("You have hit the [GET] /songs/queue/:lobbycode endpoint");
     next();
   };
 

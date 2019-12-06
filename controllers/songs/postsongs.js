@@ -3,7 +3,7 @@ const { Song } = db;
 
 const setup = () => {
   const logEndPoint = (req, res, next) => {
-    console.log("You have hit the [POST] api/songs endpoint");
+    console.log("You have hit the [POST] /songs endpoint");
     next();
   };
 
