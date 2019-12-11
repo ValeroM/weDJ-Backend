@@ -1,12 +1,10 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-// const cors = require("cors");
 const attachRoutes = require("./routes"); // whenever we require a whole directory, node looks for the "index.js" fle FIRST under that directory we required
 const db = require("./database/models");
 
 app.use(bodyParser.json()); //  basically tells the system that we want json to be used.
-// app.use(cors());
 
 const port = process.env.PORT || 7001; // Uses 7001 as port
 

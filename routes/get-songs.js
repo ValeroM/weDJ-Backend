@@ -8,6 +8,11 @@ const setup = () => {
   const router = express.Router();
 
   router.options("/", cors());
+  router.options("/add", cors());
+  router.options("/queue/:lobbycode", cors());
+  router.options("/delete", cors());
+  router.options("/rate/:lobbycode/:songcode/:rate", cors());
+
   router.get("/", cors(), controller.songsOnTableSongs); // calls the actual logic from the controller/songs/songs.js file
   router.post("/", cors(), controller.addSongsToTableSongs); // logic from controller/songs/postsongs.js
   router.post("/add", cors(), controller.addSongsToQueue); // logic from controller/songs/posttoqueue.js
