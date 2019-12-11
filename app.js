@@ -20,6 +20,10 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', 'https://wedj2019.herokuapp.com');
   // Request methods you wish to allow
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  // Disable caching for content files
+  res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+  res.header("Pragma", "no-cache");
+  res.header("Expires", 0);
   // Request headers you wish to allow
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   // Set to true if you need the website to include cookies in the requests sent
