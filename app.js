@@ -22,6 +22,8 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   // Request headers you wish to allow
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.set('Cache-Control', 'public, max-age=31557600');
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
   res.header('Access-Control-Allow-Credentials', true);
