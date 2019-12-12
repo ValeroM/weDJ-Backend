@@ -7,8 +7,11 @@ const setup = () => {
   const router = express.Router();
 
   router.options("/", cors());
+  router.options("/delete", cors());
+
   router.get("/", cors(), controller.lobbieslist);
   router.post("/", cors(), controller.addNewLobby);
+  router.delete("/delete", cors(), controller.deleteLobby);
 
   return router;
 };
